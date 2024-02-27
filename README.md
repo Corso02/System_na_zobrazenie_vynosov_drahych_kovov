@@ -5,5 +5,10 @@ Taktiež umožňuje vykresliť graf ceny pre vyšie vymenované aktíva.
 Grafy a tabuľky je možné stiahnúť vo formáte PNG.
 Aplikácia si sama udržuje databázu cien.
 
-## Inštalácia
-Stiahnúť súbor "installer.sh" a následne je potrebné ho spustiť.
+## Príprava prostredia
+### Využitie inštalačného súboru
+Stiahnúť súbor ```installer.sh``` a následne je potrebné ho spustiť.
+Ak spustíte inštaláciu s prepínačom ```-d```, pripraví sa prostredie na vývoj (budú nainštalované aj node_modules).
+
+### Naklonovanie repozitára
+Naklonujete si tento repozitár a následne spustíte ```installer.sh```

@@ -1,0 +1,123 @@
+body #content_wrapper {
+  display: flex;
+}
+@media screen and (max-height: 680px) {
+  body #content_wrapper {
+    flex-direction: column;
+  }
+}
+body #content_wrapper #tables {
+  display: flex;
+  flex-direction: column;
+}
+body #content_wrapper #tables .table, body #content_wrapper #tables .calc_table {
+  margin-top: 2.5em;
+  margin-left: 15em;
+  width: -moz-max-content;
+  width: max-content;
+}
+body #content_wrapper #tables .table .table-container-header, body #content_wrapper #tables .calc_table .table-container-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+body #content_wrapper #tables .table .table-container-header img, body #content_wrapper #tables .calc_table .table-container-header img {
+  width: 26px;
+  height: 26px;
+  margin-left: auto;
+}
+body #content_wrapper #tables .table .table-container-header img:hover, body #content_wrapper #tables .calc_table .table-container-header img:hover {
+  cursor: pointer;
+}
+body #content_wrapper #tables .table .table-footer, body #content_wrapper #tables .calc_table .table-footer {
+  margin-top: 5px;
+  display: flex;
+  justify-content: end;
+}
+body #content_wrapper #tables .table table, body #content_wrapper #tables .table th, body #content_wrapper #tables .table td, body #content_wrapper #tables .calc_table table, body #content_wrapper #tables .calc_table th, body #content_wrapper #tables .calc_table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+body #content_wrapper #tables .table table .positive, body #content_wrapper #tables .table th .positive, body #content_wrapper #tables .table td .positive, body #content_wrapper #tables .calc_table table .positive, body #content_wrapper #tables .calc_table th .positive, body #content_wrapper #tables .calc_table td .positive {
+  background-color: rgb(100, 199, 100);
+}
+body #content_wrapper #tables .table table .negative, body #content_wrapper #tables .table th .negative, body #content_wrapper #tables .table td .negative, body #content_wrapper #tables .calc_table table .negative, body #content_wrapper #tables .calc_table th .negative, body #content_wrapper #tables .calc_table td .negative {
+  background-color: rgb(221, 100, 100);
+}
+body #content_wrapper #tables .table th, body #content_wrapper #tables .table td, body #content_wrapper #tables .calc_table th, body #content_wrapper #tables .calc_table td {
+  padding: 5px 15px;
+  min-width: 55px;
+  max-width: 55px;
+  text-align: center;
+}
+body #content_wrapper #tables .calc_table_long th, body #content_wrapper #tables .calc_table_long td {
+  min-width: 100px;
+  max-width: 100px;
+}
+body #content_wrapper #tables .calc_table_long th:nth-child(1), body #content_wrapper #tables .calc_table_long td:nth-child(1) {
+  min-width: 200px;
+  max-width: 200px;
+}
+@media screen and (max-height: 680px) {
+  body #content_wrapper form {
+    display: flex;
+    flex-direction: row;
+    width: 35rem;
+  }
+  body #content_wrapper form #first_part {
+    margin-right: 2.5em;
+  }
+}
+body .last_update_date_wrapper {
+  padding: 1.5em 0;
+}
+body .last_update_date_wrapper p {
+  font-size: 14px;
+  color: rgb(99, 99, 99);
+}
+body #spinner-backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(102, 102, 102, 0.8);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  display: none;
+}
+body #spinner-backdrop #loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  display: block;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body .buttons {
+  display: flex;
+}
+body #compare {
+  display: none;
+  margin-left: 5px;
+}
+body .active {
+  display: block;
+}
+body .disable {
+  display: none;
+}
+body .inline_input {
+  display: flex;
+}
+body .inline_input input {
+  margin-left: 10px;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,52 @@
+main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .graph_wrapper{
+        width: 100%;
+        .chart_header{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            label{
+                margin-left: 10px;
+                margin-right: 5px;
+            }
+            select{
+                margin-bottom: 10px;
+                margin-top: 5px;
+                padding: 5px 10px;
+                text-align: center;
+            }
+            img{
+                width: 26px;
+                height: 26px;
+                margin-left: auto;
+                margin-right: 25px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .chart_footer{
+            display: flex;
+            .btn{
+                &:nth-of-type(1){
+                    margin-left: 20px;
+                }
+                margin-left: 5px;
+            }
+            .send_btn{
+                margin-left: 20px;
+            }
+        }
+        canvas{
+            margin-left: 20px;
+        }
+    }
+    .active{
+        display: block;
+    }
+    .disabled{
+        display: none;
+    }
+}

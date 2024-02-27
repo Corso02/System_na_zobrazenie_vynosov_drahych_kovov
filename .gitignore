@@ -1,0 +1,11 @@
+*.csv
+*.sql
+test.*
+back_up*
+/logs
+/utils/res
+.env
+node_modules
+*.sh
+*.bat
+*.db

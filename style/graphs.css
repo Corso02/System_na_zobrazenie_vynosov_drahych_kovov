@@ -1,0 +1,52 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+main .graph_wrapper {
+  width: 100%;
+}
+main .graph_wrapper .chart_header {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+main .graph_wrapper .chart_header label {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+main .graph_wrapper .chart_header select {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  text-align: center;
+}
+main .graph_wrapper .chart_header img {
+  width: 26px;
+  height: 26px;
+  margin-left: auto;
+  margin-right: 25px;
+}
+main .graph_wrapper .chart_header img:hover {
+  cursor: pointer;
+}
+main .graph_wrapper .chart_footer {
+  display: flex;
+}
+main .graph_wrapper .chart_footer .btn {
+  margin-left: 5px;
+}
+main .graph_wrapper .chart_footer .btn:nth-of-type(1) {
+  margin-left: 20px;
+}
+main .graph_wrapper .chart_footer .send_btn {
+  margin-left: 20px;
+}
+main .graph_wrapper canvas {
+  margin-left: 20px;
+}
+main .active {
+  display: block;
+}
+main .disabled {
+  display: none;
+}/*# sourceMappingURL=graphs.css.map */
