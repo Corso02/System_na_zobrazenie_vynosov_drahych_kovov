@@ -1,0 +1,1 @@
+## Documentation of JavaScript code used in web app for my bachelor thesis

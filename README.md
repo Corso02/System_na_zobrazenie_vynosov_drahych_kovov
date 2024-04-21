@@ -12,3 +12,6 @@ Ak spustíte inštaláciu s prepínačom ```-d```, pripraví sa prostredie na v�
 
 ### Naklonovanie repozitára
 Naklonujete si tento repozitár a následne spustíte ```installer.sh```
+
+##
+Posledná aktualizácia databázy: 18.4.2024

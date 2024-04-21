@@ -6,6 +6,7 @@ back_up*
 /utils/res
 .env
 node_modules
-*.sh
+installer.sh
 *.bat
 *.db
+.phpdoc

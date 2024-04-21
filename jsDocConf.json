@@ -1,0 +1,11 @@
+{
+    "source": {
+        "include": ["./scripts", "./utils"],
+        "exclude": ["./utils/node_modules/", "./utils/update_sp500_eur.js"]
+    },
+    "opts": {
+        "destination": "./all_docs/jsDocs",
+        "recurse": true,
+        "readme": "./scripts/README.md"
+    }
+}

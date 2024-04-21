@@ -1,4 +1,7 @@
 <?php
+    /**
+     * @deprecated
+     */
     class GraphDataGenerator{
         private Database $db;
         private $stringFormat;

@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js" integrity="sha512-wUYbRPLV5zs6IqvWd88HIqZU/b8TBx+I8LEioQ/UC0t5EMCLApqhIAnUg7EsAzdbhhdgW07TqYDdH3QEXRcPOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js" integrity="sha512-Hn1w6YiiFw6p6S2lXv6yKeqTk0PLVzeCwWY9n32beuPjQ5HLcvz5l2QsP+KilEr1ws37rCTw3bZpvfvVIeTh0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts/dictionary.js" defer></script>
     <script src="./scripts/graphs.js" defer></script>
 </head>
 <body>
@@ -54,6 +55,22 @@
 
                     ?>
                 </select>
+                <label for="currency">Mena:</label>
+                <select name="currency" id="currency">
+                        <?php
+                            require_once("Database.php");
+                            $db = new Database("./db/precious_metals.db");
+                            $currencies = $db->get_currencies();
+                            $flags = ["&#127482;&#127480;", "&#127466;&#127482;"];
+                            for($i = 0; $i < count($currencies); $i++){
+                                $currIdx = $i + 1;
+                                if(!empty($_POST['currency']) && $_POST['currency'] == $currIdx){
+                                    echo "<option value='{$currIdx}' selected>{$flags[$i]}     {$currencies[$i]}</option>";
+                                }
+                                else echo "<option value='{$currIdx}'>{$flags[$i]}     {$currencies[$i]}</option>";
+                            }
+                        ?>
+                    </select>
             </div>
             <div id="graphs">
                 <canvas id="my_chart" width="800" height="400"></canvas>

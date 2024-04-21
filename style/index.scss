@@ -1,7 +1,7 @@
 body{
     #content_wrapper{
         display: flex;
-        @media screen and (max-height: 680px) {
+        @media screen and (max-width: 1400px) {
             flex-direction: column;
         }
         #tables{
@@ -10,7 +10,10 @@ body{
             
             .table, .calc_table{
                 margin-top: 2.5em;
-                margin-left: 15em;
+                margin-left: 10em;
+                @media screen and (max-width: 1400px){
+                    margin-left: 2.5em;
+                }
                 width: max-content;
                 .table-container-header{
                     display: flex;
@@ -59,14 +62,21 @@ body{
             }
         }
         
-        @media screen and (max-height: 680px) {
-            form{
-                display: flex;
+        form{
+            display: flex;
+            width: 25em;
+            #first_part{
+                margin-right: 2.5em;
+            }
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                width: auto;
+            }
+            @media  screen and (max-width: 1399px) and (min-width: 500px){
                 flex-direction: row;
-                width: 35rem;
-                #first_part{
-                    margin-right: 2.5em;
-                }
+            }
+            @media screen and (min-width:1400px) {
+                flex-direction: column;
             }
         }
     }

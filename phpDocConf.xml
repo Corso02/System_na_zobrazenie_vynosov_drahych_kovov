@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/phpDocumentor/phpDocumentor/master/data/xsd/phpdoc.xsd"
+>
+    <paths>
+        <output>./all_docs/phpDocs</output>
+    </paths>
+    <version number="3.0.0">
+        <api>
+            <source dsn=".">
+                <path>Database.php</path>
+                <path>./API/</path>
+                <path>TableGenerator.php</path>
+                <path>Logger.php</path>
+                <path>from_csv_to_db.php</path>
+                <path>conversion.php</path>
+            </source>
+        </api>
+    </version>
+</phpdocumentor>

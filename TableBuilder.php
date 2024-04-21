@@ -2,6 +2,9 @@
     /*
         Written by Peter Vanát, 2023
     */
+    /**
+     * @deprecated
+     */
     class TableBuilder{
         private $tableString;
         private $headerAdded;

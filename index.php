@@ -6,9 +6,11 @@
     <title>BP</title>
     <link rel="stylesheet" href="./style/common_styles.css">
     <link rel="stylesheet" href="./style/index.css">
+    <script src="./scripts/dictionary.js" defer></script>
     <script src="./scripts/index.js" defer></script>
     <script src="./scripts/TableGenerator.js" defer></script>
     <script src="./scripts/validation.js" defer></script>
+    <script src="./scripts/tables.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
@@ -84,31 +86,55 @@
                             </div>
                         </div>
                     </div>
-            
-
-
-                    <label for="currency" class="table_only active">Mena:</label><br class="table_only active">
-                    <select name="currency" id="currency" class="table_only active">
-                        <?php
-                            require_once("Database.php");
-                            $db = new Database("./db/precious_metals.db");
-                            $currencies = $db->get_currencies();
-                            $flags = ["&#127482;&#127480;", "&#127466;&#127482;", "&#127471;&#127477;", "&#127468;&#127463;", "&#127464;&#127462;", "&#127464;&#127469;", "&#127470;&#127475;", "&#127464;&#127475;", "&#127481;&#127479;", "&#127480;&#127462;", "&#127470;&#127465;", "&#127462;&#127466;", "&#127481;&#127469;", "&#127483;&#127475;", "&#127466;&#127468;", "&#127472;&#127479;", "&#127479;&#127482;", "&#127487;&#127462;", "&#127462;&#127482;"];
-                            for($i = 0; $i < count($currencies); $i++){
-                                $currIdx = $i + 1;
-                                if(!empty($_POST['currency']) && $_POST['currency'] == $currIdx){
-                                    echo "<option value='{$currIdx}' selected>{$flags[$i]}     {$currencies[$i]}</option>";
-                                }
-                                else echo "<option value='{$currIdx}'>{$flags[$i]}     {$currencies[$i]}</option>";
-                            }
-                        ?>
-                    </select><br class="table_only active">
+                    
+                    <fieldset id="end_type" class="table_only active">
+                        <legend>Deň v mesiaci pre výpočet</legend>
+                        <div>
+                            <input type="radio" id="day_calc_month" name="day_calc" value="last" checked/>
+                            <label for="day_calc_month">Posledný deň</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="day_calc" name="day_calc" value="first"/>
+                            <label for="day_calc">Prvý deň</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="custom_day_calc" name="day_calc" value="custom_day"/>
+                            <label for="custom_day_calc">Vybrať deň</label>
+                            <input type="number" id="custom_day_calc_input" step="1" class="disable" placeholder="1-31"/>
+                        </div>
+                    </fieldset>
+                    
                     <label for="comodity">Komodita:</label><br>
                     <select name="comodity" id="comodity">
                         <option id="Gold" value="Gold">Zlato</option>
                         <option id="sp500" value="sp500">S&P 500</option>
                         <option id="Silver" value="Silver">Striebro</option>
-                    </select>
+                    </select><br>
+
+                    <div class="input wrapper">
+                        <label for="currency">Mena:</label><br>
+                        <div class="input_container">
+                            <select name="currency" id="currency">
+                                <?php
+                                    require_once("Database.php");
+                                    $db = new Database("./db/precious_metals.db");
+                                    $currencies = $db->get_currencies();
+                                    $flags = ["&#127482;&#127480;", "&#127466;&#127482;"];
+                                    for($i = 0; $i < count($currencies); $i++){
+                                        $currIdx = $i + 1;
+                                        if(!empty($_POST['currency']) && $_POST['currency'] == $currIdx){
+                                            echo "<option value='{$currIdx}' selected>{$flags[$i]}     {$currencies[$i]}</option>";
+                                        }
+                                        else echo "<option value='{$currIdx}'>{$flags[$i]}     {$currencies[$i]}</option>";
+                                    }
+                                ?>
+                            </select>
+                            <div class="tooltip" id="tooltip_clickable_currency">
+                                <img src="./imgs/info_icon.png" alt="info">
+                            </div>
+                    </div>
+                    </div>
+                    
 
                     <div class="input_wrapper calc_only disabled">
                         <label for="count" class="calc_only">Množstvo:</label>
@@ -160,7 +186,7 @@
                             id="buy_margin"
                         >
                         <br class="table_only active">
-                        <label for="sell_margin" class="table_only active">Marža pri predaji (%):</label><br class="table_only active">
+                        <label for="sell_margin" class="table_only active">Poplatok pri predaji (%):</label><br class="table_only active">
                         <input type="number"
                             name="sell_margin"
                             class="table_only active"

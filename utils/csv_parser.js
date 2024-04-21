@@ -1,13 +1,15 @@
 /**
- * Util to parse csv files into standardized form, expected delimeter in CSV is ;
- * Non-standard form:
- *   date: M/D/Y
- *   value: 1111.1
- * Standardized form:
- *   date: D.M.Y
- *   value: 1 111.1
- * Standardized CSV file will be outputed to /utils/res/Standardized.csv
- * Created by Peter Vanát 2024
+ * Util to parse csv files into standardized form, expected delimeter in CSV is ';' <br>
+ * Non-standard form: <br>
+ * &emsp;date: M/D/Y <br>
+ * &emsp;value: 1111.1 <br>
+ * Standardized form: <br>
+ * &emsp;date: D.M.Y <br>
+ * &emsp;value: 1 111.1 <br>
+ * Standardized CSV file will be outputed to /utils/res/Standardized.csv <br>
+ * Traverses given CSV file with &lt;date>;&lt;price> on each line 
+ * 
+ * @namespace Utils.CSV_parser
  */
 
 const fs = require("fs")
@@ -49,6 +51,7 @@ console.log("CSV file was parsed succesfully")
  * @param {string} dateStr date as string in M/D/Y form
  * @param {number} century_21_limit if year is higher than this limit, 19 will be added in front of it, otherwise 20 will be added 
  * @returns {string} date in string format D.M.Y
+ * @memberof Utils.CSV_parser
  */
 function parseDate(dateStr, century_21_limit, appendLimit = true){
     let parts = dateStr.split("/")
@@ -67,6 +70,7 @@ function parseDate(dateStr, century_21_limit, appendLimit = true){
  * Function to parse number from 1111.1 form to 1 111.1
  * @param {string} numberStr number as string in 1111.1 form 
  * @returns {string} number in string format 1 111.1
+ * @memberof Utils.CSV_parser
  */
 function parseNumber(numberStr){
     let parts = numberStr.split(".")

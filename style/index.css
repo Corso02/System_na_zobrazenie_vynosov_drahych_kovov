@@ -1,7 +1,7 @@
 body #content_wrapper {
   display: flex;
 }
-@media screen and (max-height: 680px) {
+@media screen and (max-width: 1400px) {
   body #content_wrapper {
     flex-direction: column;
   }
@@ -12,9 +12,14 @@ body #content_wrapper #tables {
 }
 body #content_wrapper #tables .table, body #content_wrapper #tables .calc_table {
   margin-top: 2.5em;
-  margin-left: 15em;
+  margin-left: 10em;
   width: -moz-max-content;
   width: max-content;
+}
+@media screen and (max-width: 1400px) {
+  body #content_wrapper #tables .table, body #content_wrapper #tables .calc_table {
+    margin-left: 2.5em;
+  }
 }
 body #content_wrapper #tables .table .table-container-header, body #content_wrapper #tables .calc_table .table-container-header {
   display: flex;
@@ -58,14 +63,27 @@ body #content_wrapper #tables .calc_table_long th:nth-child(1), body #content_wr
   min-width: 200px;
   max-width: 200px;
 }
-@media screen and (max-height: 680px) {
+body #content_wrapper form {
+  display: flex;
+  width: 25em;
+}
+body #content_wrapper form #first_part {
+  margin-right: 2.5em;
+}
+@media screen and (max-width: 500px) {
   body #content_wrapper form {
-    display: flex;
-    flex-direction: row;
-    width: 35rem;
+    flex-direction: column;
+    width: auto;
   }
-  body #content_wrapper form #first_part {
-    margin-right: 2.5em;
+}
+@media screen and (max-width: 1399px) and (min-width: 500px) {
+  body #content_wrapper form {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 1400px) {
+  body #content_wrapper form {
+    flex-direction: column;
   }
 }
 body .last_update_date_wrapper {

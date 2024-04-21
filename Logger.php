@@ -1,5 +1,12 @@
 <?php
+    /**
+     * @package Utils\Backend
+     * 
+     */
 
+    /**
+     * Custom logger class. Mainly used in update script.
+     */
     class Logger{
         
         private $logFile;
@@ -17,9 +24,9 @@
         }
 
         /**
-         * @param (string) $level Level of log ("info" | "warning" | "error")
-         * @param (string) $message  Message to be logged
-         * @param (boolean) $close Flag if file should be closed after writing message
+         * @param string $level Level of log ("info" | "warning" | "error")
+         * @param string $message  Message to be logged
+         * @param boolean $close Flag if file should be closed after writing message
          * @return boolean true on succesfull write otherwise false
          */
 
