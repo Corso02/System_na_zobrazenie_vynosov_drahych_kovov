@@ -283,7 +283,7 @@
                     if ($json_res) {
                         $date_from_timestamp = date("Y-m-d", $json_res->{'timestamp'}/1000);
                         if(property_exists($json_res, "price")){
-                            if(!$db->check_if_data_exists($comodities[$i], $date_from_timestamp, "2") && in_array($date_from_timestamp, $update_dates)){
+                            if(!$db->check_if_data_exists($comodities[$i], $date_from_timestamp, "2") /*&& in_array($date_from_timestamp, $update_dates)*/ ){
                                 $logger->log("info", "DB-UPDATE-EUR: Zapisujem cenu {$json_res->{'price'}} pre {$comodities[$i]}");
                                 $db->insert($date_from_timestamp, $json_res->{'price'}, 2, $comodity_id);
                                 $db->update_last_update_data($comodities[$i], $date_from_timestamp, "2");

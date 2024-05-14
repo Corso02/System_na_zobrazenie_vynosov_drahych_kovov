@@ -10,3 +10,4 @@ installer.sh
 *.bat
 *.db
 .phpdoc
+*.zip
